@@ -49,8 +49,23 @@ export const servicesService = {
     if (index === -1) {
       throw new Error('Service not found')
     }
-    const deletedService = { ...mockServices[index] }
+const deletedService = { ...mockServices[index] }
     mockServices.splice(index, 1)
     return deletedService
+  },
+
+  async getServicesByZone(zoneId) {
+    await delay(250)
+    // Mock zone-based filtering
+    const zoneServiceMap = {
+      1: [1, 2, 3, 4, 5, 6], // Downtown - all services
+      2: [4, 5, 6], // Airport - driver services only
+      3: [1, 2, 3], // Beach - car wash only
+      4: [] // North - no services
+    }
+    
+    const serviceIds = zoneServiceMap[zoneId] || []
+    const filteredServices = mockServices.filter(s => serviceIds.includes(s.Id))
+    return [...filteredServices]
   }
 }

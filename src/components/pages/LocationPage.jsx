@@ -1,25 +1,28 @@
-import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
-import { motion } from 'framer-motion'
-import { toast } from 'react-toastify'
-import ServiceCard from '@/components/molecules/ServiceCard'
-import BookingForm from '@/components/molecules/BookingForm'
-import Loading from '@/components/ui/Loading'
-import Error from '@/components/ui/Error'
-import ApperIcon from '@/components/ApperIcon'
-import Button from '@/components/atoms/Button'
-import Card from '@/components/atoms/Card'
-import { servicesService } from '@/services/api/servicesService'
-import { driversService } from '@/services/api/driversService'
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { motion } from "framer-motion";
+import { toast } from "react-toastify";
+import ServiceAreaMap from "@/components/organisms/ServiceAreaMap";
+import ApperIcon from "@/components/ApperIcon";
+import Card from "@/components/atoms/Card";
+import Button from "@/components/atoms/Button";
+import BookingForm from "@/components/molecules/BookingForm";
+import ServiceCard from "@/components/molecules/ServiceCard";
+import Error from "@/components/ui/Error";
+import Loading from "@/components/ui/Loading";
+import { driversService } from "@/services/api/driversService";
+import { servicesService } from "@/services/api/servicesService";
 
 const LocationPage = () => {
-  const { city } = useParams()
-  const [driverServices, setDriverServices] = useState([])
-  const [localDrivers, setLocalDrivers] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState('')
-  const [selectedService, setSelectedService] = useState(null)
+  const { city } = useParams();
+  const [driverServices, setDriverServices] = useState([]);
+  const [localDrivers, setLocalDrivers] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+  const [selectedService, setSelectedService] = useState(null);
   const [showBookingForm, setShowBookingForm] = useState(false)
+  const [selectedZone, setSelectedZone] = useState(null)
+  const [zoneServices, setZoneServices] = useState([])
 
   const cityName = city ? city.charAt(0).toUpperCase() + city.slice(1) : 'Your City'
 
@@ -62,11 +65,16 @@ const LocationPage = () => {
     setSelectedService(null)
     toast.success(`Driver booking confirmed for ${cityName}!`)
   }
+const handleRetry = () => {
+    loadData();
+  };
 
-  const handleRetry = () => {
-    loadData()
-  }
-
+  const handleZoneChange = (zone, services) => {
+    setSelectedZone(zone);
+    setZoneServices(services);
+  };
+  
+  const localFeatures = [
   const localFeatures = [
     { icon: 'MapPin', title: 'Local Knowledge', description: 'Drivers familiar with local routes and traffic' },
     { icon: 'Clock', title: 'Quick Response', description: 'Fast pickup times in your area' },
@@ -166,10 +174,20 @@ const LocationPage = () => {
             </div>
           </motion.div>
         </div>
+</section>
+
+      {/* Service Area Map */}
+      <section className="py-20 bg-secondary">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceAreaMap 
+            onZoneChange={handleZoneChange}
+            cityName={cityName}
+          />
+        </div>
       </section>
 
       {/* Services for Location */}
-      <section className="py-20 bg-secondary">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <motion.h2
@@ -178,7 +196,7 @@ const LocationPage = () => {
               viewport={{ once: true }}
               className="text-3xl md:text-4xl font-display font-bold text-primary mb-4"
             >
-              Driver Services in {cityName}
+              {selectedZone ? `Services in ${selectedZone.name}` : `Driver Services in ${cityName}`}
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -187,12 +205,15 @@ const LocationPage = () => {
               transition={{ delay: 0.1 }}
               className="text-lg text-gray-600 max-w-2xl mx-auto"
             >
-              Choose from our range of professional driver services, all available in {cityName}
+              {selectedZone 
+                ? `Available services in the ${selectedZone.name} area`
+                : `Choose from our range of professional driver services, all available in ${cityName}`
+              }
             </motion.p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {driverServices.map((service, index) => (
+            {(selectedZone && zoneServices.length > 0 ? zoneServices : driverServices).map((service, index) => (
               <motion.div
                 key={service.Id}
                 initial={{ opacity: 0, y: 20 }}
@@ -208,11 +229,19 @@ const LocationPage = () => {
               </motion.div>
             ))}
           </div>
+          
+          {selectedZone && zoneServices.length === 0 && (
+            <div className="text-center py-12">
+              <ApperIcon name="AlertCircle" className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+              <h3 className="text-xl font-semibold text-gray-600 mb-2">No Services Available</h3>
+              <p className="text-gray-500">Services are currently unavailable in the {selectedZone.name} area.</p>
+            </div>
+          )}
         </div>
-      </section>
+</section>
 
       {/* Local Drivers */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-secondary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <motion.h2

@@ -1,4 +1,5 @@
 @import 'react-toastify/dist/ReactToastify.css';
+@import 'leaflet/dist/leaflet.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -87,4 +88,44 @@
 
 .hover\:scale-98:hover {
   transform: scale(0.98);
+}
+
+/* Leaflet Map Overrides */
+.leaflet-container {
+  font-family: 'Inter', sans-serif;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 12px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.leaflet-popup-tip {
+  box-shadow: none;
+}
+
+.leaflet-control-zoom a {
+  border-radius: 6px;
+  border: none;
+  background: white;
+  color: #1a1a2e;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.leaflet-control-zoom a:hover {
+  background: #c9a961;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .leaflet-control-zoom {
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  
+  .leaflet-popup-content-wrapper {
+    max-width: 200px;
+  }
 }

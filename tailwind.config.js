@@ -37,8 +37,17 @@ export default {
         },
         slideUp: {
           '0%': { transform: 'translateY(10px)', opacity: '0' },
-          '100%': { transform: 'translateY(0)', opacity: '1' },
+'100%': { transform: 'translateY(0)', opacity: '1' },
         },
+      },
+      zIndex: {
+        'leaflet-pane': '400',
+        'leaflet-tile': '200',
+        'leaflet-overlay': '400',
+        'leaflet-shadow': '500',
+        'leaflet-marker': '600',
+        'leaflet-tooltip': '650',
+        'leaflet-popup': '1000',
       },
     },
   },
