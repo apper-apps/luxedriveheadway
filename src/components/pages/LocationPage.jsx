@@ -72,9 +72,8 @@ const handleRetry = () => {
   const handleZoneChange = (zone, services) => {
     setSelectedZone(zone);
     setZoneServices(services);
-  };
+};
   
-  const localFeatures = [
   const localFeatures = [
     { icon: 'MapPin', title: 'Local Knowledge', description: 'Drivers familiar with local routes and traffic' },
     { icon: 'Clock', title: 'Quick Response', description: 'Fast pickup times in your area' },
