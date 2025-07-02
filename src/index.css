@@ -1,0 +1,90 @@
+@import 'react-toastify/dist/ReactToastify.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: #1a1a2e;
+    background-color: #fafafa;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-accent to-yellow-600 text-white px-8 py-3 rounded-lg font-medium hover:scale-102 transition-all duration-200 shadow-lg hover:shadow-xl;
+  }
+  
+  .btn-secondary {
+    @apply bg-white text-accent border-2 border-accent px-8 py-3 rounded-lg font-medium hover:bg-accent hover:text-white transition-all duration-200;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-200 p-6;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-200 rounded-lg focus:border-accent focus:ring focus:ring-accent/20 outline-none transition-all duration-200;
+  }
+  
+  .nav-link {
+    @apply text-primary hover:text-accent transition-colors duration-200 font-medium relative;
+  }
+  
+  .nav-link::after {
+    @apply content-[''] absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-200;
+  }
+  
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+}
+
+/* Toast Overrides */
+.Toastify__toast-container {
+  z-index: 9999;
+}
+
+.Toastify__toast {
+  border-radius: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  padding: 16px;
+  min-height: auto;
+}
+
+.Toastify__toast--success {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+}
+
+.Toastify__toast--error {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.Toastify__toast--info {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+}
+
+.hover\:scale-102:hover {
+  transform: scale(1.02);
+}
+
+.hover\:scale-98:hover {
+  transform: scale(0.98);
+}

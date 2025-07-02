@@ -1,0 +1,107 @@
+{
+  "mockServices": [
+    {
+      "Id": 1,
+      "name": "Premium Car Wash",
+      "category": "Car Wash",
+      "basePrice": 45,
+      "priceUnit": "per wash",
+      "duration": 60,
+      "description": "Complete exterior and interior cleaning with premium products",
+      "icon": "Car",
+      "features": [
+        "Exterior hand wash",
+        "Interior vacuuming",
+        "Dashboard cleaning",
+        "Window cleaning",
+        "Tire shine"
+      ]
+    },
+    {
+      "Id": 2,
+      "name": "Deluxe Detail",
+      "category": "Car Wash",
+      "basePrice": 85,
+      "priceUnit": "per detail",
+      "duration": 120,
+      "description": "Comprehensive detailing service including wax and interior conditioning",
+      "icon": "Sparkles",
+      "features": [
+        "Premium wash & wax",
+        "Interior deep clean",
+        "Leather conditioning",
+        "Paint protection",
+        "Chrome polishing",
+        "Air freshening"
+      ]
+    },
+    {
+      "Id": 3,
+      "name": "Express Wash",
+      "category": "Car Wash",
+      "basePrice": 25,
+      "priceUnit": "per wash",
+      "duration": 30,
+      "description": "Quick and efficient exterior wash for busy schedules",
+      "icon": "Zap",
+      "features": [
+        "Exterior wash",
+        "Basic dry",
+        "Window cleaning",
+        "Quick service"
+      ]
+    },
+    {
+      "Id": 4,
+      "name": "Hourly Chauffeur",
+      "category": "Driver",
+      "basePrice": 75,
+      "priceUnit": "per hour",
+      "duration": 60,
+      "description": "Professional driver service with luxury vehicle for any occasion",
+      "icon": "Clock",
+      "features": [
+        "Professional driver",
+        "Luxury vehicle",
+        "Flexible scheduling",
+        "Wait time included",
+        "Meet & greet service"
+      ]
+    },
+    {
+      "Id": 5,
+      "name": "Full Day Service",
+      "category": "Driver",
+      "basePrice": 450,
+      "priceUnit": "per day",
+      "duration": 480,
+      "description": "Complete day chauffeur service for business or leisure",
+      "icon": "Calendar",
+      "features": [
+        "8-hour service",
+        "Premium vehicle",
+        "Professional driver",
+        "Multiple stops",
+        "Refreshments included",
+        "Flexible itinerary"
+      ]
+    },
+    {
+      "Id": 6,
+      "name": "Airport Transfer",
+      "category": "Driver",
+      "basePrice": 95,
+      "priceUnit": "per trip",
+      "duration": 90,
+      "description": "Reliable airport transportation with flight monitoring",
+      "icon": "Plane",
+      "features": [
+        "Flight monitoring",
+        "Meet & greet",
+        "Luggage assistance",
+        "Premium vehicle",
+        "On-time guarantee"
+      ]
+    }
+  ]
+}

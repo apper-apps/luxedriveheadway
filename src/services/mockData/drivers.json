@@ -1,0 +1,76 @@
+{
+  "mockDrivers": [
+    {
+      "Id": 1,
+      "name": "James Anderson",
+      "rating": 4.9,
+      "experience": 8,
+      "languages": ["English", "Spanish"],
+      "hourlyRate": 75,
+      "cities": ["New York", "Newark", "Jersey City"]
+    },
+    {
+      "Id": 2,
+      "name": "Maria Rodriguez",
+      "rating": 4.8,
+      "experience": 6,
+      "languages": ["English", "Spanish", "French"],
+      "hourlyRate": 70,
+      "cities": ["Los Angeles", "Beverly Hills", "Santa Monica"]
+    },
+    {
+      "Id": 3,
+      "name": "Michael Chen",
+      "rating": 5.0,
+      "experience": 10,
+      "languages": ["English", "Mandarin"],
+      "hourlyRate": 80,
+      "cities": ["San Francisco", "Oakland", "San Jose"]
+    },
+    {
+      "Id": 4,
+      "name": "Sarah Johnson",
+      "rating": 4.9,
+      "experience": 7,
+      "languages": ["English"],
+      "hourlyRate": 75,
+      "cities": ["Chicago", "Evanston", "Oak Park"]
+    },
+    {
+      "Id": 5,
+      "name": "David Wilson",
+      "rating": 4.7,
+      "experience": 5,
+      "languages": ["English", "German"],
+      "hourlyRate": 65,
+      "cities": ["Miami", "Miami Beach", "Coral Gables"]
+    },
+    {
+      "Id": 6,
+      "name": "Lisa Thompson",
+      "rating": 4.8,
+      "experience": 9,
+      "languages": ["English", "Italian"],
+      "hourlyRate": 70,
+      "cities": ["Boston", "Cambridge", "Brookline"]
+    },
+    {
+      "Id": 7,
+      "name": "Robert Martinez",
+      "rating": 4.6,
+      "experience": 4,
+      "languages": ["English", "Spanish"],
+      "hourlyRate": 60,
+      "cities": ["Las Vegas", "Henderson", "Summerlin"]
+    },
+    {
+      "Id": 8,
+      "name": "Jennifer Lee",
+      "rating": 4.9,
+      "experience": 11,
+      "languages": ["English", "Korean"],
+      "hourlyRate": 85,
+      "cities": ["Seattle", "Bellevue", "Redmond"]
+    }
+  ]
+}
