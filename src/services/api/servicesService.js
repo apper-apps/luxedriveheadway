@@ -1,5 +1,6 @@
-import { mockServices } from '@/services/mockData/services.json'
+import mockServicesData from '@/services/mockData/services.json'
 
+const { mockServices } = mockServicesData
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms))
 
 export const servicesService = {

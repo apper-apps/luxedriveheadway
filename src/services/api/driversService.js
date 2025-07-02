@@ -1,5 +1,6 @@
-import { mockDrivers } from '@/services/mockData/drivers.json'
+import mockDriversData from '@/services/mockData/drivers.json'
 
+const { mockDrivers } = mockDriversData
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms))
 
 export const driversService = {

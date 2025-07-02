@@ -1,10 +1,10 @@
-import { useState } from 'react'
-import { toast } from 'react-toastify'
-import { motion } from 'framer-motion'
-import Input from '@/components/atoms/Input'
-import Button from '@/components/atoms/Button'
-import Card from '@/components/atoms/Card'
-import ApperIcon from '@/components/ApperIcon'
+import React, { useState } from "react";
+import { toast } from "react-toastify";
+import { motion } from "framer-motion";
+import ApperIcon from "@/components/ApperIcon";
+import Card from "@/components/atoms/Card";
+import Input from "@/components/atoms/Input";
+import Button from "@/components/atoms/Button";
 
 const BookingForm = ({ service, onSubmit }) => {
   const [formData, setFormData] = useState({
@@ -177,7 +177,7 @@ const BookingForm = ({ service, onSubmit }) => {
           </div>
         </div>
 
-        <Button
+<Button
           type="submit"
           variant="primary"
           size="lg"
